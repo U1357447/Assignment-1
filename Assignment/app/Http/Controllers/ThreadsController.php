@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Thread;
 use Illuminate\Http\Request;
 
 class ThreadsController extends Controller
 {
     public function index()
     {
-        return view('threads.index');
+        $threads = Thread::all();
+        return view('threads.index', compact('threads'));
     }
 }

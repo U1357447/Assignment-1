@@ -23,6 +23,7 @@ Route::get('threads', 'ThreadsController@index');
 Route::get('threads/{thread}', 'ThreadsController@open');
 Route::get('threads/{thread}/replies/{reply}/edit', 'ThreadsController@editReply');
 
+Route::post('threads/add', 'ThreadsController@addThread');
 Route::post('threads/{thread}/replies', 'ThreadsController@addReply');
 
 Route::patch('threads/{thread}/replies/{reply}', 'ThreadsController@updateReply');

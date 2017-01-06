@@ -19,6 +19,18 @@ class ThreadsController extends Controller
         return view('threads.open', compact('thread'));
     }
 
+    public function addThread(Request $request)
+    {
+        $thread = new Thread;
+        $thread->title = $request->title;
+        $thread->content = $request->content;
+        $thread->user_id = '1';
+
+        $thread->save();
+
+        return back();
+    }
+
     public function addReply(Request $request, Thread $thread)
     {
         $reply = new Reply;

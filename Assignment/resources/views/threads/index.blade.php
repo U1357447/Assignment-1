@@ -5,9 +5,31 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Create a New Thread</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form method="POST" action="/threads/add">
+                            {{csrf_field()}}
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" name="title" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="content">Content</label>
+                                <textarea name="content" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Reply</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
                     <div class="panel-heading">Threads</div>
 
-                        @foreach($threads as $thread)                            
+                        @foreach($threads as $thread)
                             <div class="panel-body">
                                 <a href="{{$thread->path()}}"><h2>{{$thread->title}}</h2></a>
                                 <p>{{$thread->content}}</p>
@@ -17,6 +39,7 @@
                                     Updated at: {{$thread->updated_at}}
                                 </div>
                             </div>
+                            <hr/>
                         @endforeach
 
                 </div>

@@ -15,7 +15,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="panel-body"><h3>Replies</h3></div>
+                    <div class="panel-body"><h3>Replies</h3></div><hr/>
                     @foreach ($thread->replies as $reply)
                         <div class="panel-body">
                             <p>{{$reply->content}}</p>
@@ -26,6 +26,7 @@
                             </div>
                             <div class="pull-right"><a href="/threads/{{$thread->id}}/replies/{{$reply->id}}/edit" class="btn btn-primary">Edit Reply</a></div>
                         </div>
+                        <hr/>
                     @endforeach
                 </div>
 

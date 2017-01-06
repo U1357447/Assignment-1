@@ -31,6 +31,19 @@ class ThreadsController extends Controller
         return back();
     }
 
+    public function editThread(Thread $thread)
+    {
+        return view('threads.edit', compact('thread'));
+    }
+
+    public function updateThread(Request $request, Thread $thread)
+    {
+        $thread->update($request->all());
+        return back();
+    }
+
+################################################################################
+
     public function addReply(Request $request, Thread $thread)
     {
         $reply = new Reply;

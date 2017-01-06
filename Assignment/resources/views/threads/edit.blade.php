@@ -6,17 +6,22 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3>Edit Reply</h3>
+                        <h3>Edit Thread</h3>
                     </div>
                     <div class="panel-body">
-                        <form method="POST" action="/threads/{{$thread->id}}/replies/{{$reply->id}}">
+                        <form method="POST" action="/threads/{{$thread->id}}/update">
                             {{method_field('PATCH')}}
                             {{csrf_field()}}
                             <div class="form-group">
-                                <textarea name="content" class="form-control">{{$reply->content}}</textarea>
+                                <label for="title">Title</label>
+                                <input type="text" name="title" class="form-control" value="{{$thread->title}}"/>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <label for="content">Content</label>
+                                <textarea name="content" class="form-control">{{$thread->content}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Update Thread</button>
                             </div>
                         </form>
                     </div>

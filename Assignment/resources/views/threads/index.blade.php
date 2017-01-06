@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3>Create a New Thread</h3>
@@ -13,7 +13,7 @@
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" name="title" class="form-control"></textarea>
+                                <input type="text" name="title" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label for="content">Content</label>
@@ -32,9 +32,12 @@
                         @foreach($threads as $thread)
                             <div class="panel-body">
                                 <a href="{{$thread->path()}}"><h2>{{$thread->title}}</h2></a>
-                                <p>{{$thread->content}}</p>
-                                <div class="pull-right">
-
+                                <div class="col-md-9">
+                                    {{$thread->content}}
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="/threads/{{$thread->id}}/edit">Edit Thread</a><br/>
+                                    Created by: {{$thread->user->name}}<br/>
                                     Created at: {{$thread->created_at}}</br>
                                     Updated at: {{$thread->updated_at}}
                                 </div>

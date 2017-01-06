@@ -17,4 +17,9 @@ class Thread extends Model
     {
         return '/threads/' . $this->id;
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

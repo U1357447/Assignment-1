@@ -12,4 +12,9 @@ class ThreadsController extends Controller
         $threads = Thread::all();
         return view('threads.index', compact('threads'));
     }
+
+    public function open(Thread $thread)
+    {
+        return view('threads.open', compact('thread'));
+    }
 }

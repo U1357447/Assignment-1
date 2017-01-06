@@ -14,6 +14,16 @@
                                 updated at: {{$thread->updated_at}}
                             </div>
                         </div>
+                        <div class="panel-body"><h3>Replies</h3></div>
+                        @foreach ($thread->replies as $reply)
+                            <div class="panel-body">
+                                {{$reply->content}}
+                                <div class="pull-right">
+                                    created at: {{$reply->created_at}}</br>
+                                    updated at: {{$reply->updated_at}}
+                                </div>
+                            </div>
+                        @endforeach
                 </div>
             </div>
         </div>

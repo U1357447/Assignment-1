@@ -5,16 +5,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div>
-                            <h2>{{$thread->title}}</h2>
-                            <p>{{$thread->content}}</p>
-                        </div>
+                    <div class="panel-heading clearfix">
+                        <h2>{{$thread->title}}</h2>
+                        <p>{{$thread->content}}</p>
+
                         <div class="pull-right">
-                            <p>
-                                created at: {{$thread->created_at}}</br>
-                                updated at: {{$thread->updated_at}}
-                            </p>
+                            Created by: {{$thread->user->name}}<br/>
+                            Created at: {{$thread->created_at}}</br>
+                            Updated at: {{$thread->updated_at}}
                         </div>
                     </div>
                     <div class="panel-body"><h3>Replies</h3></div><hr/>

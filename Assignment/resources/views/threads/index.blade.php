@@ -7,16 +7,16 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Threads</div>
 
-
-                        @foreach($threads as $thread)
+                        @foreach($threads as $thread)                            
                             <div class="panel-body">
-                                <h2>{{$thread->title}}</h2>
+                                <a href="{{$thread->path()}}"><h2>{{$thread->title}}</h2></a>
                                 <p>{{$thread->content}}</p>
                                 <div class="pull-right">
-                                    created at: {{$thread->created_at}}</br>
-                                    updated at: {{$thread->updated_at}}
+
+                                    Created at: {{$thread->created_at}}</br>
+                                    Updated at: {{$thread->updated_at}}
                                 </div>
-                            </div>                        
+                            </div>
                         @endforeach
 
                 </div>

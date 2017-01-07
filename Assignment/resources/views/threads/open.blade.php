@@ -59,10 +59,12 @@
                 {{$reply->content}}
             </div>
             <div class="col-md-3">
-                <a href="/threads/{{$thread->id}}/replies/{{$reply->id}}/edit">Edit Reply</a><br/>
+                @if(Auth::id() == $reply->user_id)
+                    <a href="/threads/{{$thread->id}}/replies/{{$reply->id}}/edit">Edit Reply</a><br/>
+                @endif
                 Created by: {{$reply->user->name}}<br/>
-                created at: {{$reply->created_at}}</br>
-                updated at: {{$reply->updated_at}}
+                Created at: {{$reply->created_at}}</br>
+                Updated at: {{$reply->updated_at}}
             </div>
         </div>
         <hr/>

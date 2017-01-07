@@ -36,7 +36,7 @@
 @endsection
 
 @section('panelheader')
-    Threads
+    <h3>Threads</h3>
 @endsection
 
 @section('panelbody')
@@ -47,7 +47,9 @@
                 {{$thread->content}}
             </div>
             <div class="col-md-3">
-                <a href="/threads/{{$thread->id}}/edit">Edit Thread</a><br/>
+                @if(Auth::id() == $thread->user_id)
+                    <a href="/threads/{{$thread->id}}/edit">Edit Your Thread</a><br/>
+                @endif
                 Created by: {{$thread->user->name}}<br/>
                 Created at: {{$thread->created_at}}</br>
                 Updated at: {{$thread->updated_at}}

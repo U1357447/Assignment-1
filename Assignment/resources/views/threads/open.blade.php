@@ -1,32 +1,33 @@
 @extends('layouts.app')
 
 @section('addform')
-    <!-- Compose a reply to current thread -->
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3>Send a Reply</h3>
-        </div>
-        <div class="panel-body">
-            <form method="POST" action="/threads/{{$thread->id}}/replies">
-                {{csrf_field()}}
-                <div class="form-group">
-                    <textarea name="content" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Reply</button>
-                </div>
-            </form>
-        </div>
-        @if(count($errors))
-            @foreach($errors->all() as $error)
-                <div class="panel-body">
-                    <div class="alert alert-danger" role="alert">
-                        <p>Please enter a reply!</p>
+    @if(Auth::check())
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Send a Reply</h3>
+            </div>
+            <div class="panel-body">
+                <form method="POST" action="/threads/{{$thread->id}}/replies">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <textarea name="content" class="form-control"></textarea>
                     </div>
-                </div>
-            @endforeach
-        @endif
-    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Reply</button>
+                    </div>
+                </form>
+            </div>
+            @if(count($errors))
+                @foreach($errors->all() as $error)
+                    <div class="panel-body">
+                        <div class="alert alert-danger" role="alert">
+                            <p>Please enter a reply!</p>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+    @endif
 @endsection
 
 @section('panelheader')

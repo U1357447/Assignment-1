@@ -1,36 +1,38 @@
 @extends('layouts.app')
 
 @section('addform')
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3>Create a New Thread</h3>
-        </div>
-        <div class="panel-body">
-            <form method="POST" action="/threads/add">
-                {{csrf_field()}}
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" name="title" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label for="content">Content</label>
-                    <textarea name="content" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Create Thread</button>
-                </div>
-            </form>
-        </div>
-        @if(count($errors))
-            @foreach($errors->all() as $error)
-                <div class="panel-body">
-                    <div class="alert alert-danger" role="alert">
-                        <p>{{$error}}</p>
+    @if(Auth::check())
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Create a New Thread</h3>
+            </div>
+            <div class="panel-body">
+                <form method="POST" action="/threads/add">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" class="form-control"/>
                     </div>
-                </div>
-            @endforeach
-        @endif
-    </div>
+                    <div class="form-group">
+                        <label for="content">Content</label>
+                        <textarea name="content" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Create Thread</button>
+                    </div>
+                </form>
+            </div>
+            @if(count($errors))
+                @foreach($errors->all() as $error)
+                    <div class="panel-body">
+                        <div class="alert alert-danger" role="alert">
+                            <p>{{$error}}</p>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+    @endif
 @endsection
 
 @section('panelheader')

@@ -22,6 +22,7 @@ class ThreadsController extends Controller
 
     public function addThread(Request $request)
     {
+        $this->validate($request, ['title' => 'required', 'content' => 'required']);
         $thread = new Thread;
         $thread->title = $request->title;
         $thread->content = $request->content;
@@ -47,6 +48,7 @@ class ThreadsController extends Controller
 
     public function addReply(Request $request, Thread $thread)
     {
+        $this->validate($request, ['content' => 'required']);
         $reply = new Reply;
         $reply->content = $request->content;
         $reply->user_id = Auth::user()->id;
@@ -63,6 +65,7 @@ class ThreadsController extends Controller
 
     public function updateReply(Request $request, Thread $thread, Reply $reply)
     {
+        $this->validate($request, ['content' => 'required']);
         $reply->update($request->all());
         return back();
     }

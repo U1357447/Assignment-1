@@ -21,6 +21,15 @@
                 </div>
             </form>
         </div>
+        @if(count($errors))
+            @foreach($errors->all() as $error)
+                <div class="panel-body">
+                    <div class="alert alert-danger" role="alert">
+                        <p>{{$error}}</p>
+                    </div>
+                </div>
+            @endforeach
+        @endif
     </div>
 @endsection
 

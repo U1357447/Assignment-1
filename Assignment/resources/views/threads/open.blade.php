@@ -17,8 +17,17 @@
                 </div>
             </form>
         </div>
+        @if(count($errors))
+            @foreach($errors->all() as $error)
+                <div class="panel-body">
+                    <div class="alert alert-danger" role="alert">
+                        <p>Please enter a reply!</p>
+                    </div>
+                </div>
+            @endforeach
+        @endif
     </div>
-    @endsection
+@endsection
 
 @section('panelheader')
     <h2>{{$thread->title}}</h2>

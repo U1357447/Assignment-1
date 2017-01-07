@@ -78,7 +78,22 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    @yield('addform')
+                    <div class="panel panel-default">
+                        <div class="panel-heading clearfix">
+                            @yield('panelheader')
+                        </div>
+                        <div class="panel-body">
+                            @yield('panelbody')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Scripts -->

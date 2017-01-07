@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Thread;
 use App\Reply;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ThreadsController extends Controller
 {
@@ -24,7 +25,7 @@ class ThreadsController extends Controller
         $thread = new Thread;
         $thread->title = $request->title;
         $thread->content = $request->content;
-        $thread->user_id = '1';
+        $thread->user_id = Auth::user()->id;;
 
         $thread->save();
 
@@ -48,7 +49,7 @@ class ThreadsController extends Controller
     {
         $reply = new Reply;
         $reply->content = $request->content;
-        $reply->user_id = '1';
+        $reply->user_id = Auth::user()->id;
 
         $thread->replies()->save($reply);
 

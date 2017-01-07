@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
-    protected $fillable = ['content', 'user_id'];
+    protected $fillable = ['content'];
 
     public function thread()
     {

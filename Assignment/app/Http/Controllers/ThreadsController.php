@@ -44,6 +44,12 @@ class ThreadsController extends Controller
         return back();
     }
 
+    public function deleteThread(Thread $thread)
+    {
+        $thread->delete();
+        return back;
+    }
+
 ################################################################################
 
     public function addReply(Request $request, Thread $thread)
@@ -67,6 +73,12 @@ class ThreadsController extends Controller
     {
         $this->validate($request, ['content' => 'required']);
         $reply->update($request->all());
+        return back();
+    }
+
+    public function deleteReply(Thread $thread, Reply $reply)
+    {
+        $reply->delete();
         return back();
     }
 }

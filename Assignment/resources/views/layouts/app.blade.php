@@ -14,6 +14,8 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
+    <script src="/js/app.js"></script>
+    
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -95,8 +97,5 @@
         </div>
 
     </div>
-
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
 </body>
 </html>

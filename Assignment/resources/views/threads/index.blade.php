@@ -11,11 +11,11 @@
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" name="title" class="form-control"/>
+                        <input type="text" name="title" class="form-control" value="{{old('title')}}"/>
                     </div>
                     <div class="form-group">
                         <label for="content">Content</label>
-                        <textarea name="content" class="form-control"></textarea>
+                        <textarea name="content" class="form-control">{{old('content')}}</textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Create Thread</button>
@@ -48,7 +48,8 @@
             </div>
             <div class="col-md-3">
                 @if(Auth::id() == $thread->user_id)
-                    <a href="/threads/{{$thread->id}}/edit">Edit Your Thread</a><br/>
+                    <a href="/threads/{{$thread->id}}/edit" class="btn btn-primary">&#160;&#160;Edit&#160;&#160;</a>
+                    <a href="/threads/{{$thread->id}}/delete" class="btn btn-danger">Delete</a><br/>
                 @endif
                 Created by: {{$thread->user->name}}<br/>
                 Created at: {{$thread->created_at}}</br>

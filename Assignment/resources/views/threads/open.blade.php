@@ -60,7 +60,8 @@
             </div>
             <div class="col-md-3">
                 @if(Auth::id() == $reply->user_id)
-                    <a href="/threads/{{$thread->id}}/replies/{{$reply->id}}/edit">Edit Reply</a><br/>
+                    <a href="/threads/{{$thread->id}}/replies/{{$reply->id}}/edit" class="btn btn-primary">&#160;&#160;Edit&#160;&#160;</a>
+                    <a href="/threads/{{$thread->id}}/replies/{{$reply->id}}/delete" class="btn btn-danger">Delete</a><br/>
                 @endif
                 Created by: {{$reply->user->name}}<br/>
                 Created at: {{$reply->created_at}}</br>

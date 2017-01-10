@@ -15,8 +15,6 @@ Route::get('/', 'ThreadsController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-
 Route::get('threads', 'ThreadsController@index');
 Route::get('threads/{thread}', 'ThreadsController@open');
 Route::get('threads/{thread}/edit', 'ThreadsController@editThread')->middleware('auth');

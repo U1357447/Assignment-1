@@ -47,7 +47,7 @@ class ThreadsController extends Controller
     public function deleteThread(Thread $thread)
     {
         $thread->delete();
-        return back;
+        return back();
     }
 
 ################################################################################

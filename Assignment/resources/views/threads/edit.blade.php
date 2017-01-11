@@ -18,6 +18,7 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Update Thread</button>
+            <a href="/threads" class="btn btn-default">Back to List</a>
         </div>
     </form>
 @endsection

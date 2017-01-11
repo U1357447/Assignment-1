@@ -15,7 +15,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    
+
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -83,6 +83,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    @if(Session::has('successalert'))
+                        <div class="alert alert-success" role="alert">
+                            <p>{{Session::get('successalert')}}</p>
+                        </div>
+                    @endif
+                    @if(Session::has('dangeralert'))
+                        <div class="alert alert-danger" role="alert">
+                            <p>{{Session::get('dangeralert')}}</p>
+                        </div>
+                    @endif
                     @yield('addform')
                     <div class="panel panel-default">
                         <div class="panel-heading clearfix">

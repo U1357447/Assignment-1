@@ -6,6 +6,7 @@ use App\Thread;
 use App\Reply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 class ThreadsController extends Controller
 {
@@ -29,7 +30,7 @@ class ThreadsController extends Controller
         $thread->user_id = Auth::user()->id;;
 
         $thread->save();
-
+        Session::flash('successalert', 'Thread has been created successfully.');
         return back();
     }
 
@@ -41,12 +42,14 @@ class ThreadsController extends Controller
     public function updateThread(Request $request, Thread $thread)
     {
         $thread->update($request->all());
+        Session::flash('successalert', 'Thread has been updated successfully.');
         return back();
     }
 
     public function deleteThread(Thread $thread)
     {
         $thread->delete();
+        Session::flash('dangeralert', 'Thread has been deleted.');
         return back();
     }
 
@@ -60,7 +63,7 @@ class ThreadsController extends Controller
         $reply->user_id = Auth::user()->id;
 
         $thread->replies()->save($reply);
-
+        Session::flash('successalert', 'Reply has been added to the thread.');
         return back();
     }
 
@@ -73,12 +76,14 @@ class ThreadsController extends Controller
     {
         $this->validate($request, ['content' => 'required']);
         $reply->update($request->all());
+        Session::flash('successalert', 'Reply has been successfully updated.');
         return back();
     }
 
     public function deleteReply(Thread $thread, Reply $reply)
     {
         $reply->delete();
+        Session::flash('dangeralert', 'Reply has been deleted.');
         return back();
     }
 }

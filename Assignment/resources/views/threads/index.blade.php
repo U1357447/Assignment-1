@@ -40,9 +40,19 @@
 @endsection
 
 @section('panelbody')
+
+    @if (!count($threads))
+        <!-- If there are no replies -->
+        <div class="panel-body">
+            <div class="alert alert-danger" role="alert">
+                <p>No threads have been created yet.</p>
+            </div>
+        </div>
+    @endif
+
     @foreach($threads as $thread)
         <div class="panel-body">
-            <a href="{{$thread->path()}}"><h2>{{$thread->title}}</h2></a>
+            <a href="/threads/{{$thread->id}}"><h2>{{$thread->title}}</h2></a>
             <div class="col-md-9">
                 {{$thread->content}}
             </div>

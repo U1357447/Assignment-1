@@ -13,6 +13,7 @@
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Update</button>
+            <a href="/threads/{{$thread->id}}" class="btn btn-default">Back to Thread</a>
         </div>
     </form>
 @endsection

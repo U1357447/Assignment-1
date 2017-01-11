@@ -30,7 +30,7 @@ class ThreadsController extends Controller
         $thread->user_id = Auth::user()->id;;
 
         $thread->save();
-        Session::flash('successalert', 'Thread has been created successfully.');
+        Session::flash('successfulalert', 'Thread has been created successfully.');
         return back();
     }
 
@@ -42,7 +42,7 @@ class ThreadsController extends Controller
     public function updateThread(Request $request, Thread $thread)
     {
         $thread->update($request->all());
-        Session::flash('successalert', 'Thread has been updated successfully.');
+        Session::flash('successfulalert', 'Thread has been updated successfully.');
         return back();
     }
 
@@ -50,40 +50,6 @@ class ThreadsController extends Controller
     {
         $thread->delete();
         Session::flash('dangeralert', 'Thread has been deleted.');
-        return back();
-    }
-
-################################################################################
-
-    public function addReply(Request $request, Thread $thread)
-    {
-        $this->validate($request, ['content' => 'required']);
-        $reply = new Reply;
-        $reply->content = $request->content;
-        $reply->user_id = Auth::user()->id;
-
-        $thread->replies()->save($reply);
-        Session::flash('successalert', 'Reply has been added to the thread.');
-        return back();
-    }
-
-    public function editReply(Thread $thread, Reply $reply)
-    {
-        return view('replies.edit', compact('reply', 'thread'));
-    }
-
-    public function updateReply(Request $request, Thread $thread, Reply $reply)
-    {
-        $this->validate($request, ['content' => 'required']);
-        $reply->update($request->all());
-        Session::flash('successalert', 'Reply has been successfully updated.');
-        return back();
-    }
-
-    public function deleteReply(Thread $thread, Reply $reply)
-    {
-        $reply->delete();
-        Session::flash('dangeralert', 'Reply has been deleted.');
         return back();
     }
 }

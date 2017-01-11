@@ -83,9 +83,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    @if(Session::has('successalert'))
+                    @if(Session::has('successfulalert'))
                         <div class="alert alert-success" role="alert">
-                            <p>{{Session::get('successalert')}}</p>
+                            <p>{{Session::get('successfulalert')}}</p>
                         </div>
                     @endif
                     @if(Session::has('dangeralert'))

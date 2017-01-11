@@ -1,0 +1,10 @@
+
+.header
+{
+    background-image: url('/images/web-header.jpg');
+    height:250px;
+    width:100%;
+    margin-bottom:15px;
+    background-position:center;
+    background-size:cover;
+}

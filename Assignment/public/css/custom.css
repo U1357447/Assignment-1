@@ -39,3 +39,13 @@
     margin-top:2%;
     color:white;
 }
+
+.panel-heading
+{
+    background-color: #ECECEC !important;
+}
+
+.panel-body
+{
+    background-color: #ECECEC !important;
+}

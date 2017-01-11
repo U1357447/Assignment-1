@@ -29,7 +29,7 @@
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'MaxThreads') }}
                     </a>
                 </div>
 
@@ -74,7 +74,7 @@
         <div class="header">
             <div class="container">
                 <div class="col-md-12 header-text">
-                    <h1>Your Simple Message Board Site.</h1>
+                    <h1>{{config('app.name', 'MaxThreads')}}! Your Simple Message Board Site.</h1>
                     <p>Create, Read, Reply, Enjoy!</p>
                 </div>
             </div>

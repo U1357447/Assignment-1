@@ -63,7 +63,7 @@
                 @endif
                 Created by: {{$thread->user->name}}<br/>
                 Created at: {{$thread->created_at}}</br>
-                Updated at: {{$thread->updated_at}}
+                Last Updated: {{$thread->updated_at}}
             </div>
         </div>
         <hr/>

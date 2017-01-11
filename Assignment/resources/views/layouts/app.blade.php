@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="html">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,12 +23,11 @@
         ]); ?>
     </script>
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+<body class="body">
+    <div class="web" id="app">
+        <nav class="navbar navbar-default navbar-static-top" style="margin-bottom:0px !important;">
             <div class="container">
                 <div class="navbar-header">
-                    <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
@@ -72,7 +71,14 @@
             </div>
         </nav>
 
-        <div class="header"></div>
+        <div class="header">
+            <div class="container">
+                <div class="col-md-12 header-text">
+                    <h1>Your Simple Message Board Site.</h1>
+                    <p>Create, Read, Reply, Enjoy!</p>
+                </div>
+            </div>
+        </div>
 
         <div class="container">
             <div class="row">
@@ -99,6 +105,16 @@
                 </div>
             </div>
         </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="col-md-12 footer-text">
+                    <p>University of Huddersfield</p>
+                    <p>Advanced Web Programming | Assignment 1 | Software Engineering</p>
+                    <p>© Max Jordan - U1357447</p>
+                </div>
+            </div>
+        </footer>
 
     </div>
 </body>

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'MaxThreads') }}</title>
+    <title>{{ config('app.name', 'MaxChan') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
